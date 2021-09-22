@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/Patrolrecord/Patrolrecord",
+    "pages/changePwds/index",
+    "pages/Centralizedcontroldevice/Centralizedcontroldevice",
+    "pages/user/index",
+    "pages/ledPoleOview/ledPoleOview",
+    "pages/Singlelampequipment/Singlelampequipment",
+    "pages/energyconsumptionreport/energyconsumptionreport",
+    "pages/Lightingtheoverview/Lightingtheoverview",
+    "pages/ListItem/index",
+    "pages/eqlistItem/index",
+    "pages/addPreject/index",
+    "pages/userList/index",
+    "pages/addUser/index",
+    "pages/addequipments/index",
+    "pages/searchEquip/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "光大照明",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "black",
+    "fontSize": "24rpx",
+    "selectedColor": "#007aff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/Home.png",
+        "selectedIconPath": "static/tabbar/xuanzhong.png"
+      },
+      {
+        "pagePath": "pages/ListItem/index",
+        "text": "项目列表",
+        "iconPath": "static/tabbar/Document.png",
+        "selectedIconPath": "static/tabbar/Documentyx.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "个人中心",
+        "selectedIconPath": "static/tabbar/Profilexuanzhong.png",
+        "iconPath": "static/tabbar/Profile.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

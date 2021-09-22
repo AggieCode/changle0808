@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "添加用户",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#007AFF",
+  "usingComponents": {
+    "u-select": "/uview-ui/components/u-select/u-select"
+  }
+}

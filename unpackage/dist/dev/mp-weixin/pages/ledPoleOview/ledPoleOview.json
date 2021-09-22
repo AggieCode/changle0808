@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "智慧照明",
+  "fontSize": "12rpx",
+  "scrollIndicator": "none",
+  "usingComponents": {
+    "u-modal": "/uview-ui/components/u-modal/u-modal",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "项目列表",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#007AFF",
+  "usingComponents": {
+    "u-search": "/uview-ui/components/u-search/u-search",
+    "list-title": "/components/ListTitle/ListTitle",
+    "u-swipe-action": "/uview-ui/components/u-swipe-action/u-swipe-action"
+  }
+}

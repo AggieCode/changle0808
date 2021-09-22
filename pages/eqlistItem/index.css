@@ -1,11 +1,14 @@
 .eq-tool{
   padding:0 20rpx;
+  background-color: white;
   box-sizing: border-box;
   height: 92rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+  position: relative;
+  z-index: 15;
 }
 .eq-tool.active{
   background:#fff;
@@ -81,21 +84,23 @@
 	height: 80rpx;
 	border-bottom: 1px solid #ECF5FF;
 	padding: 15rpx 10rpx;
-	margin: 10rpx auto 0;
+	margin: 10rpx auto ;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 .eq-list .left{
-	width: 140rpx;
+	/* width: 140rpx; */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: relative;
 }
 .eq-list .left .IDicon{
 	width: 34rpx;
 	height:34rpx;
+	margin-left: 10rpx;
 }
 .eq-list .right{
 	display: flex;
@@ -108,5 +113,91 @@
 .eq-list .right .icon-cd{
 	width: 34rpx;
 	height: 34rpx;
+	margin-left: 15rpx;
+}
+.checkall{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 100%;
+	background-color: #007AFF;
+	color: white;
+/* 	display: flex;
+	align-items: center;
+	font-size: 36rpx;*/
+	position: fixed;
+	text-align: center;
+	top: 80%;
+	right: 5%;
+	line-height: 100rpx;
+	font-size: 28rpx;
+	transition: ease 0.5s;
+	z-index: 20;
+}
+.dropw{
+	width: 750rpx;
+	height: 200rpx;
+	position: fixed;
+	top: -170rpx;
+	left: 0;
+	z-index: 10;
+	transition: ease 1s;
+	z-index: 10;
+}
+.slidDropw{
+	top: 180rpx;
+	transition: ease 1s;
+}
+.reagList{
+	width: 100%;
+	height: 70rpx;
+	padding: 10rpx 30rpx;
+	border-bottom: 1px solid #F1F1F1;
+	font-size: 28rpx;
+	display: flex;
+	align-items: center;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: ease 0.5s;
+	
+}
+.reglistIm{
+	width: 32rpx;
+	height: 32rpx;
+}
+.regColos{
+	color: #007AFF;
+}
+.eqswitchBox{
+	width: 100%;
+	height: 100rpx;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+	border: 1px solid #F1F1F1;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 15rpx 15rpx;
+	box-sizing: border-box;
+	font-weight: 400;
+}
+.witbtns{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 26rpx;
+	
+}
+.witbtns image{
+	width: 26rpx;
+	height: 26rpx;
+}
+.witbtns:hover{
+	color: #007AFF;
+}
+.eq-list .left text{
 	margin-left: 15rpx;
 }

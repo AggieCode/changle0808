@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "下级用户",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#007AFF",
+  "usingComponents": {
+    "u-modal": "/uview-ui/components/u-modal/u-modal",
+    "u-search": "/uview-ui/components/u-search/u-search"
+  }
+}

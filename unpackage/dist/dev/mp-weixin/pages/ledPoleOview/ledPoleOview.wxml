@@ -1,0 +1,1 @@
+<view><u-modal bind:input="__e" vue-id="4d5ebe20-1" content="{{content}}" value="{{show}}" data-event-opts="{{[['^input',[['__set_model',['','show','$event',[]]]]]]}}" bind:__l="__l"></u-modal><u-button bind:click="__e" vue-id="4d5ebe20-2" data-event-opts="{{[['^click',[['open']]]]}}" bind:__l="__l" vue-slots="{{['default']}}">打开模态框</u-button></view>

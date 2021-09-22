@@ -72,22 +72,6 @@
 			}
 		},
 		{
-			"path": "pages/Centralizedcontroldevice/Centralizedcontroldevice",
-			"style": {
-				// "navigationBarTitleText": "能加",
-				// "fontSize": "12rpx"
-				"scrollIndicator": "none",
-				"app-plus": {
-					"titleNView": {
-						"titleText": "集控器设备",
-						"backgroundColor": "#007aff",
-						"titleColor": "white"
-						
-					} //app+h5顶部导航
-				}
-			}
-		},
-		{
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "个人中心",
@@ -201,13 +185,78 @@
 				"navigationBarTextStyle":"white",
 				"navigationBarBackgroundColor":"#007AFF"
 			}
+		},
+		{
+			"path":"pages/addUser/index",
+			"style":{
+				"navigationBarTitleText": "添加用户",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
+		},
+		{
+			"path":"pages/addequipments/index",
+			"style":{
+				"navigationBarTitleText": "添加设备",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
+		},
+		{
+			"path":"pages/searchEquip/index",
+			"style":{
+				"navigationBarTitleText": "搜索设备",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
+		},
+		{
+			"path":"pages/parameterSetting/index",
+			"style":{
+				"navigationBarTitleText": "参数设置",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
+		},
+		{
+			"path":"pages/waringEqList/index",
+			"style":{
+				"navigationBarTitleText": "告警信息",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
+		},
+		{
+			"path":"pages/ItemInfoPage/index",
+			"style":{
+				"navigationBarTitleText": "项目信息",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
+		},
+		{
+			"path":"pages/addItemUser/index",
+			"style":{
+				"navigationBarTitleText": "添加项目成员",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#007AFF"
+			}
 		}
+		
+		
 		
 		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "光大照明",
+		"navigationBarTitleText": "能加",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
@@ -219,21 +268,22 @@
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath":"static/tabbar/Home.png",
-				"selectedIconPath":"static/tabbar/Home%20(1).png"
+				"selectedIconPath":"static/tabbar/xuanzhong.png"
 			},
 			{
 				"pagePath":"pages/ListItem/index",
 				"text":"项目列表",
 				"iconPath":"static/tabbar/Document.png",
-				"selectedIconPath":"static/tabbar/Document%20(1).png"
+				"selectedIconPath":"static/tabbar/Documentyx.png"
 				
 			},
 			{
 				"pagePath": "pages/user/index",
 				"text": "个人中心",
-				"selectedIconPath":"static/tabbar/Profile%20(1).png",
+				"selectedIconPath":"static/tabbar/Profilexuanzhong.png",
 				"iconPath":"static/tabbar/Profile.png"
 			}
+			
 			
 			
 			

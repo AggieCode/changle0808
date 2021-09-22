@@ -1,0 +1,51 @@
+.waringBox{
+	padding: 20rpx 20rpx;
+	margin: 15rpx 20rpx;
+	box-sizing: border-box;
+	border-bottom: 1rpx solid #EEEEEE;
+}
+.errInfo{
+	color: gray;
+	margin-top: 10rpx;
+	font-size: 24rpx;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.errbtn{
+	width: 100rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.waringTime{
+	padding: 10rpx 10rpx;
+	margin: 20rpx 20rpx;
+	height: 80rpx;
+
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between
+}
+.dayBefore{
+	display: flex;
+	align-items: center;
+	font-size: 28rpx;
+}
+.dayBefore .dayIcon{
+	width: 26rpx;
+	height: 26rpx;
+}
+.waringTime .selectTime{
+	width: 45%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border: 1rpx solid #ECF5FF;
+}
+.waringTime .selectTime image{
+	width: 24rpx;
+	height: 24rpx;
+}

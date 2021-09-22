@@ -1,0 +1,20 @@
+.waringBox{
+	padding: 20rpx 20rpx;
+	margin: 15rpx 20rpx;
+	box-sizing: border-box;
+	border-bottom: 1rpx solid #EEEEEE;
+}
+.errInfo{
+	color: gray;
+	margin-top: 10rpx;
+	font-size: 24rpx;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.errbtn{
+	width: 100rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}

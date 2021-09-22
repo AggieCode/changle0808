@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "添加设备",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#007AFF",
+  "usingComponents": {
+    "u-swipe-action": "/uview-ui/components/u-swipe-action/u-swipe-action",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-radio-group": "/uview-ui/components/u-radio-group/u-radio-group",
+    "u-radio": "/uview-ui/components/u-radio/u-radio",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-mask": "/uview-ui/components/u-mask/u-mask",
+    "u-modal": "/uview-ui/components/u-modal/u-modal"
+  }
+}
