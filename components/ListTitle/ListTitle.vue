@@ -15,13 +15,14 @@
 
 <style lang="scss" scoped>
 	.titx {
-		position: absolute;
+	
 		top: 20rpx;
 		left: 15rpx;
 		z-index: 9;
 		display: flex;
 		font-size: 24rpx;
 		align-items: center;
+		margin-bottom: 20rpx;
 	}
 	
 	.colrsBox {

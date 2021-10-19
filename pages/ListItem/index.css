@@ -1,16 +1,27 @@
 .searchBox {
 	height: 100rpx;
-	margin: 20rpx 20rpx 20rpx;
+	margin: 20rpx 30rpx 20rpx;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
-
+.addBimg{
+	width: 10%;
+}
+.addBimg image{
+	width: 54rpx;
+	height: 54rpx;
+	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
 .list-item {
 	width: 700rpx;
 	position: relative;
 	margin: 10rpx auto 0;
-	padding: 40rpx 0rpx 15rpx;
+	padding: 00rpx 0rpx 15rpx;
 	box-sizing: border-box;
 	border-radius: 10rpx;
 }
@@ -18,7 +29,7 @@
 .item-box {
 	width: 100%;
 	height: 170rpx;
-	margin: 30rpx auto;
+	margin: 35rpx auto;
 	padding: 10rpx;
 	box-sizing: border-box;
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -39,20 +50,22 @@
 }
 
 .ringItem {
-	width: 30%;
 	height: 100%;
 	float: right;
+	margin-right: 35rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content:space-around;
 }
 
 .pre-icon {
-	width: 26rpx;
-	height: 42rpx;
+	width: 36rpx;
+	height: 36rpx;
 }
 
 .preject-zx {
 	height: 30%;
-	margin: 0 auto;
-	margin-top: 15rpx;
+	
 	display: flex;
 	align-items: center;
 }
@@ -77,11 +90,13 @@
 }
 
 .pre-city {
-	width: 55%;
+
 	height: 100%;
 	display: flex;
 	align-items: center;
-	margin-left: 10%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 	
 
 }
@@ -92,9 +107,35 @@
 }
 
 .pre-cjr {
-	width: 340rpx;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	width: 50%;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 	margin-left: 10rpx;
+}
+.itemband{
+	width: 100%;
+	margin:30rpx auto;
+	padding: 32rpx 32rpx;
+	box-sizing: border-box;
+	border-radius: 10rpx;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	
+}
+.navImg{
+	width: 10%;
+	height: 70rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.navImg image{
+	width: 62rpx;
+	height: 62rpx;
+}
+.itemInfo{
+	flex: 1;
+	
 }

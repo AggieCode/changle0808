@@ -1,22 +1,21 @@
 <template>
 	<view>
 		<!--添加设备历史记录-->
-		<view class="listbox">
-			<u-swipe-action :show="show" :index="1" @click="removeClick" @open="open" :options="options">
-
-				<view class="eqname">
-					<view>设备名称</view>
-					<view>设备001</view>
-				</view>
-				<view class="eqname">
-					<view>设备序列号</view>
-					<view>534864354564</view>
-				</view>
-				<!--删除历史记录-->
-				<!-- <image src="../../static/clear.png" class="quxiao"></image> -->
-			</u-swipe-action>
+		<view class="listbox" v-for="(item,index) in eqList" :key="item.imei">
+			<view class="eqname">
+				<view>设备名称：</view>
+				<view style="margin-left: 20rpx;">{{item.name}}</view>
+			</view>
+			<view class="eqname">
+				<view>设备序列号：</view>
+				<view style="margin-left: 20rpx;">{{item.imei}}</view>
+			</view>
+			<!--删除历史记录-->
+			<image src="../../static/eqitemicon/deleimg.png" class="quxiao" @click="deltEqlis(index)"></image>
 		</view>
-		<u-empty text="无历史记录" mode="history"></u-empty>
+		<view style="position: absolute; top: 30%; left: 42%;" v-show="eqList.length==0">
+			<u-empty text="无历史记录" mode="history"></u-empty>
+		</view>
 
 
 		<!--设备命名提示-->
@@ -45,26 +44,43 @@
 		<!--遮罩-->
 		<u-mask :show="tipshow" @click="tipshow = false" z-index="9"></u-mask>
 		<!--添加按钮-->
-		<view class="addBox" @click="scanADD">
-			<view class="smAdd">
+		<view class="addBox">
+			<view class="smAdd" @click="scanADD">
 				<image src="../../static/eqlist/saoma.png" class="addIcon"></image>
 				<text style="margin-left: 30rpx;color: #007AFF;">扫码添加</text>
 			</view>
 			<view class="smAdd" @click="openTipes">
-				<image src="../../static/eqlist/shoudong.png" class="addIcon" ></image>
-				<text style="margin-left: 30rpx;" >手动添加</text>
+				<image src="../../static/eqlist/shoudong.png" class="addIcon"></image>
+				<text style="margin-left: 30rpx;">手动添加</text>
 			</view>
 		</view>
 
 		<!--手动输入信息-->
-		<u-modal v-model="manuallyTip" :show-cancel-button="true" title="请手动输入内容">
+		<u-modal v-model="manuallyTip" @confirm="sdConfirm" :show-cancel-button="true" title="请手动输入内容">
 			<view class="slot-content">
 				<view class="manuallyBox">
-					<input type="text" placeholder="请输入设备序列号" class="manuallyInp" />
-					<input type="text" placeholder="请输入设备名称" class="manuallyInp" />
+					<input type="text" v-model="sdeqlis.imei" placeholder="请输入设备序列号" class="manuallyInp" />
+					<input type="text" v-model="sdeqlis.name" placeholder="请输入设备名称" class="manuallyInp" />
 				</view>
 			</view>
 		</u-modal>
+		<!--提交结果-->
+		<view class='cmit-result' v-if="isResult">
+			<view class='result'>
+				<view class='title'>提交结果</view>
+				<view class='home'>
+					<view class='list' v-for="(item,index) in resultList" :key="index">
+						<view class='imei'>{{item.imei}}</view>
+						<view :class='{"msg":true, "success":item.code == 10000 }'>{{item.msg}}</view>
+					</view>
+				</view>
+				<image @click="isResult=false" src='../../static/eqitemicon/quxiao.png' class='exit'></image>
+			</view>
+		</view>
+		<view class="hiseqname" v-show="eqList.length">
+			<view class="">已经添加{{eqList.length}}个设备</view>
+			<view><button class="addbtn" @click="addEquipment">添加</button></view>
+		</view>
 	</view>
 </template>
 
@@ -72,10 +88,10 @@
 	export default {
 		data() {
 			return {
+				isResult: false,
 				manuallyTip: false, //手动添加信息提示框
 				tipshow: false, //弹窗提示
 				master: "",
-				show: false,
 				options: [{
 						text: '取消',
 						style: {
@@ -88,31 +104,37 @@
 							backgroundColor: '#dd524d'
 						}
 					}
-				]
+				],
+				sdeqlis: {
+					name: "",
+					imei: "",
+					show: false,
+				},
+				saoma: "",
+				eqList: [],
+				resultList: [], //提交返回结果
 			}
 		},
 		methods: {
 			removeClick(index, index1) {
 				if (index1 == 1) {
-					// this.ListMsg.splice(index, 1);
-					this.$u.toast(`删除了第${index}个cell`);
+					this.eqList.splice(index, 1);
+					this.$u.toast(`删除了第${index}个设备`);
 					//删除项目
 				} else {
-					// this.ListMsg[index].show = false;
-					this.show = false;
-					this.$u.toast(`收藏成功`);
-
+					console.log(index)
+					setTimeout(() => {
+						this.eqList[index].show = true;
+					}, 200)
 				}
 			},
 			open(index) {
 				// 先将正在被操作的swipeAction标记为打开状态，否则由于props的特性限制，
 				// 原本为'false'，再次设置为'false'会无效
-				console.log(index);
-				this.show = false;
-				// this.ListMsg[index].show = true;
-				// this.ListMsg.map((val, idx) => {
-				// 	if (index != idx) this.ListMsg[idx].show = false;
-				// })
+				this.eqList[index].show = true;
+				this.eqList.map((val, idx) => {
+					if (index != idx) this.list[idx].show = false;
+				})
 			},
 			radioChange(e) {
 				//单选
@@ -127,123 +149,101 @@
 			},
 			//扫码添加
 			scanADD() {
-				console.log('aaa')
+				let that = this;
 				uni.scanCode({
 					success: function(res) {
-						console.log('条码类型：' + res.scanType);
-						console.log('条码内容：' + res.result);
+						if (res.errMsg == "scanCode:ok") {
+							var name = res.result;
+							var result = [];
+							var eqName = `设备${name.substring(name.length-4)}`;
+							var obj = {
+								imei: res.result,
+								name: eqName,
+								show: false
+							}
+							result.push(obj);
+							that.eqList = result;
+						} else {
+							this.$showToast("出现异常，请重试")
+						}
 					},
 					complete: (data) => {
 						console.log(data)
 					}
 				});
+			},
+			//添加设备
+			addEquipment() {
+				let data = {
+					itemId: uni.getStorageSync("itemId"),
+					eqList: JSON.stringify(this.eqList)
+				};
+				this.$request({
+					url: this.$urls.url.eqItem.addEquipment,
+					data,
+					method: "POST",
+					success: res => {
+						this.disData(res);
+						this.isResult = true;
+						this.eqList = [];
+					}
+				})
+			},
+			//手动添加设备
+			sdConfirm() {
+				let obj = this.sdeqlis;
+
+				this.eqList.push(obj);
+				this.manuallyTip = false;
+				this.sdeqlis = {
+					name: "",
+					imei: "",
+					show: false
+				}
+			},
+			//删除
+			deltEqlis(index) {
+				this.eqList.splice(index, 1);
+			},
+			//处理添加结果
+			disData(data) {
+				var arr = [];
+				for (var index in data) {
+					let obj = {
+						imei: index,
+						msg: data[index],
+					}
+					arr.push(obj);
+				}
+				this.resultList = arr;
 			}
 
-		}
+		},
+		onBackPress(e) {
+			console.log(e)
+			if (e.from === 'backbutton') {
+				uni.redirectTo({
+					url: "/pages/eqlistItem/index"
+				})
+				// uni.showModal({
+				// 	title: '提示',
+				// 	content: '是否返回',
+				// 	success: res => {
+				// 		if (res.confirm) {
+				// 			uni.redirectTo({
+				// 				url: `/pages/Centralizedcontroldevice/Centralizedcontroldevice`
+				// 			})
+		
+				// 		}
+				// 	}
+				// });
+				// 禁止默认返回
+				return true;
+			}
+		},
 	}
 </script>
 
 <style lang="scss">
-	.listbox {
-		padding: 30rpx 50rpx 0 30rpx;
-		margin: 30rpx auto 0;
-		box-sizing: border-box;
-		position: relative;
-		border-bottom: 1rpx solid #F8F8F8;
-	}
-
-	.eqname {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin: 10rpx auto 0;
-		box-sizing: border-box;
-		margin-bottom: 15rpx;
-	}
-
-	.quxiao {
-		width: 32rpx;
-		height: 32rpx;
-		position: absolute;
-		right: 3%;
-		top: 0%;
-
-	}
-
-	.tips {
-		width: 600rpx;
-		height: 400rpx;
-		position: fixed;
-		overflow: hidden;
-		background: white;
-		top: 50%;
-		left: 50%;
-		text-align: center;
-		font-size: 26rpx;
-		padding: 30rpx 30rpx;
-		-webkit-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-		border: 1rpx solid gray;
-		z-index: 10;
-		border-radius: 10rpx;
-	}
-
-	.checkBox {
-		margin: 30rpx auto 0;
-		text-align: left;
-		font-size: 24rpx;
-	}
-
-	.checkFont {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 30rpx;
-	}
-
-	.custom-style {
-		margin-top: 30rpx;
-	}
-
-	.addBox {
-		width: 700rpx;
-		height: 100rpx;
-		position: absolute;
-		bottom: 10%;
-		margin: 0 auto;
-		margin-left: 3%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.smAdd {
-		width: 40%;
-		height: 100%;
-		border-radius: 70rpx;
-		border: 1rpx solid #CCCCCC;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.addIcon {
-		width: 35rpx;
-		height: 35rpx;
-	}
-
-	.manuallyBox {
-		width: 100%;
-		height: 250rpx;
-		padding: 20rpx 20rpx;
-	}
-
-	.manuallyInp {
-		margin: 20rpx auto 0;
-		height: 70rpx;
-		padding: 20rpx 20rpx;
-		font-size: 26rpx;
-		box-sizing: border-box;
-		border: 1rpx solid #F4F4F5;
-	}
+	@import "./index.css";
 </style>

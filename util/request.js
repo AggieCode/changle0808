@@ -1,11 +1,22 @@
 export default function(params){
 	let header = {
     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-    "userId": uni.getStorageSync("userId")
+    // "userId": uni.getStorageSync("userId")
   }
-	if(uni.getStorageSync('token')){
-		header.Authorization = uni.getStorageSync('token');
-	}
+  const base_url = 'https://iot.xmnengjia.com';
+  //https://warn.ludeng-yun.com 平台
+  const item_url="https://warn.ludeng-yun.com";
+
+  if(params.url.includes(item_url)){
+	  if(uni.getStorageSync('token')){
+	  	header.token = uni.getStorageSync('token');
+	  }
+  }else{
+	  header.userId=uni.getStorageSync("userId");
+  }
+	// if(uni.getStorageSync('token')){
+	// 	//header.token = uni.getStorageSync('token');
+	// }
 	if(params.header){
 		header = {
 			...header,

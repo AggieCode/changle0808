@@ -27,8 +27,8 @@
 		data() {
 			return {
 				form: {
-					username: '',
-					password: '',
+					username: 'chenlin',
+					password: 'ly123456',
 				},
 				biyiCaptchaKey: '',
 				value: '',
@@ -54,16 +54,15 @@
 					success: res => {
 						if(res.code==10000){
 							uni.setStorageSync('token', res.data.token);
-							uni.setStorageSync("userId",res.data.id);
 							uni.setStorageSync("username",res.data.username);
-							uni.setStorageSync("level",res.data.tree_level);
+							uni.setStorageSync("nickname",res.data.nickname);
+							uni.setStorageSync("userId",res.data.id);
 							uni.reLaunch({
 								url: '/pages/index/index'
 							})
 						}else if(res.code){
 							this.$showToast(`${res.msg}！`)
 						}
-						
 					},
 					fail: err => {
 						switch (err.code){

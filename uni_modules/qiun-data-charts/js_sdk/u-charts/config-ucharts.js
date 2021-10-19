@@ -107,7 +107,21 @@ module.exports = {
 			"gridType": "dash",
 			"dashLength": 2,
 		},
-		"legend": {},
+		"legend": {
+			 "show": true,
+			        "position": "top",
+			        "float": "center",
+			        "padding": 5,
+			        "margin": 5,
+			        "backgroundColor": "rgba(0,0,0,0)",
+			        "borderColor": "rgba(0,0,0,0)",
+			        "borderWidth": 0,
+			        "fontSize": 13,
+			        "fontColor": "#666666",
+			        "lineHeight": 11,
+			        "hiddenColor": "#CECECE",
+			        "itemGap": 10
+		},
 		"extra": {
 			"line": {
 				"type": "curve",

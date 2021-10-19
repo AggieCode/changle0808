@@ -1,0 +1,53 @@
+.paramList {
+	box-sizing: border-box;
+	border-top: solid #eee 1rpx;
+	background: #fff;
+	padding-left: 36rpx;
+}
+
+.TemplateName {
+	height: 100rpx;
+	box-sizing: border-box;
+	border-bottom: solid #eee 1rpx;
+	display: flex;
+	align-items: center;
+	color: #007AFF;
+}
+.paramList .telmLis{
+  height: 100rpx;
+  box-sizing: border-box;
+  border-bottom: solid #eee 1rpx;
+  display: flex;
+  padding: 0 36rpx 0 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.telmLisIcon{
+	width: 27rpx;
+	height: 28rpx;
+}
+.noData{
+	width: 200rpx;
+	height: 230rpx;
+	margin: 0 auto;
+	color: gray;
+	text-align: center;
+	margin-top: 200rpx;
+}
+.noData .icon{
+	width: 100rpx;
+	height: 120rpx;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20rpx;
+	
+}
+.timeSlot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0rpx 36rpx 0 0;
+		height: 80rpx;
+		background: #F1F1F1;
+		margin-left: -36rpx;
+	}
