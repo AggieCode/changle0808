@@ -68,7 +68,6 @@
 				this.lisShow = true;
 			},
 			Roelconfirm(e) {
-				console.log(e)
 				this.userLV = e[0].label;
 				this.lv = e[0].value;
 			}

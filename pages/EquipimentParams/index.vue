@@ -1,25 +1,22 @@
 <template>
 	<view class="paramList">
-		<view class="TemplateName" @click="toParamsEatil" v-if="!parmas.timestamp">
-			+ 添加新参数
-		</view>
-		<view class="telmLis" v-else>
+		<view class="telmLis">
 			<view class="telmLisTX">更新时间</view>
-			<view>{{paramsLis.time}}</view>
+			<view>{{updateTime}}</view>
 		</view>
 
-		<view v-if="parmas.strategy_content">
+		<view v-if="paramsLis.length>0">
 			<view class="timeSlot">
 				<view style="margin-left: 36rpx; color: gray;">时间段</view>
 			</view>
-			<view class="telmLis" v-show="paramsLis.uptime">
-				<view class="telmLisTX">{{paramsLis.uptime}}</view>
-				<view>{{paramsLis.state1}}</view>
+			<view class="telmLis" v-for="(item,index) in paramsLis" :key="index">
+				<view class="telmLisTX">{{item.time}}</view>
+				<view>{{item.status}}<text v-if="item.liang">{{item.lang}}50%</text></view>
 			</view>
-			<view class="telmLis" v-show="paramsLis.outtime">
+			<!-- <view class="telmLis" v-show="paramsLis.outtime">
 				<view class="telmLisTX">{{paramsLis.outtime}}</view>
 				<view>{{paramsLis.state2}}</view>
-			</view>
+			</view> -->
 		</view>
 		<view class='noData' v-else>
 			<image class='icon' src='../../static/noData.png'></image>
@@ -33,17 +30,18 @@
 
 <script>
 	import {
-		dateFormatFn
+		formatTime
 	} from "../../util/tools.js";
 	export default {
 		data() {
 			return {
+				updateTime:"",//更新时间
 				noDataShow: false, //提示显示
 				allDis: false,
 				current: "",
 				itemId: "",
 				id: "",
-				parmas:{},
+				parmas: {},
 				tabbarList: [{
 						iconPath: "grid",
 						selectedIconPath: "grid-fill",
@@ -78,14 +76,12 @@
 			//底部tabbar跳转事件
 			tabListBtn(e) {
 				let url = this.tabbarList[e];
-				console.log(url);
 				uni.redirectTo({
 					url: url.page
 				})
 			},
 			toParamsEatil() {
 				//跳转添加参数页面、
-
 				uni.navigateTo({
 					url: "/pages/addParamsDetail/index",
 				})
@@ -109,6 +105,21 @@
 				}
 				return result;
 			},
+			//处理时间段
+			disTimeList(data) {
+				let that = this;
+				let result = [];
+				let cntData = data.split(',');
+				cntData.forEach((item, index) => {
+					let temp = item.split('_');
+					result.push({
+						time: temp[0] || false,
+						status: that.disStatus(temp[1]),
+						liang: temp[2] || false
+					})
+				})
+				return result;
+			},
 			getParams() {
 				uni.showLoading({
 					title: "加载中"
@@ -124,47 +135,25 @@
 					success: res => {
 						uni.hideLoading();
 						if (res.code == 10000) {
-							this.parmas=res.data;
-							if (res.data.strategy_content) {
-								let msg = res.data.strategy_content;
-								let uptime = msg.substr(0, 5);
-								let outtime = msg.substr(9, 5);
-								let time = dateFormatFn(res.data.timestamp);
-								let state1 = msg.substr(7, 2) <= 10 ? "关灯" : "开灯";
-								let state2 = this.disStatus(msg.substr(15, 2)) + " " + msg.substring(msg
-									.length - 2) + "%";
-								this.paramsLis = {
-									time,
-									uptime,
-									outtime,
-									state1,
-									state2
-								};
+							this.parmas = res.data;
+							let timeIlist = "";
+							if (res.data.timestamp) {
+								this.updateTime = formatTime(res.data.timestamp);
 							}
+							if (res.data.strategy_content) {
+								timeIlist = this.disTimeList(res.data.strategy_content);
+							}
+							this.paramsLis=timeIlist;
 						}
 					}
 				})
 			}
 		},
 		onBackPress(e) {
-			console.log(e)
 			if (e.from === 'backbutton') {
 				uni.redirectTo({
 					url: "/pages/eqlistItem/index"
 				})
-				// uni.showModal({
-				// 	title: '提示',
-				// 	content: '是否返回',
-				// 	success: res => {
-				// 		if (res.confirm) {
-				// 			uni.redirectTo({
-				// 				url: `/pages/Centralizedcontroldevice/Centralizedcontroldevice`
-				// 			})
-
-				// 		}
-				// 	}
-				// });
-				// 禁止默认返回
 				return true;
 			}
 		},

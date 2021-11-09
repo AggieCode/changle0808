@@ -8,15 +8,11 @@
 					</u-checkbox-group>
 				</view>
 			</view>
-			
 			<view style="flex: 1;">
 				<u-search placeholder="请输入设备名称" :show-action="false" action-text="添加" v-model="keyword"
 					@change="serchChange" :clearabled="true" :disabled="false">
 				</u-search>
 			</view>
-
-
-
 		</view>
 		<view class="infoBox">
 			<view class="eq-list" v-for="(item,index) in eqInofLis" :key="item.id">
@@ -128,7 +124,6 @@
 		},
 		methods: {
 			Clickchange(e) {
-				console.log(e);
 				this.disMsg = e;
 				this.swiperCurrent = e;
 			},
@@ -208,7 +203,6 @@
 			},
 			//单选
 			checkboxChange(e){
-				console.log(e);
 			},
 			subMit(){
 				uni.showLoading({
@@ -268,7 +262,6 @@
 
 		}),
 		onBackPress(e) {
-			console.log(e)
 			if (e.from === 'backbutton') {
 				uni.redirectTo({
 					url: "/pages/addParamsDetail/index"

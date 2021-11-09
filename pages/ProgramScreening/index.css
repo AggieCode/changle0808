@@ -1,0 +1,80 @@
+.glleryList {
+	margin: 20rpx 20rpx;
+	box-sizing: border-box;
+}
+
+.gllery {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	margin: 20rpx 0;
+	padding: 15rpx 0;
+	border-radius: 15rpx;
+	border: 1rpx solid #F1F1F1;
+}
+
+.gllery .bigImg {
+	width: 200rpx;
+	height: 150rpx;
+	overflow: hidden;
+	padding: 20rpx 20rpx;
+}
+
+.gllery .bigImg image {
+	width: 100%;
+	
+}
+
+.gllery .subject {
+	flex: 1;
+	padding: 0rpx 20rpx;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.gllery .subject .imgName {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	word-break: break-all;
+	font-size: 32rpx;
+}
+
+.gllery .subject .coazuo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 0;
+	margin: 10rpx 0;
+}
+
+.gllery .subject .coazuo .fileType {
+	font-size: 24rpx;
+	color: gray;
+}
+.tianjia{
+	position: fixed;
+	bottom: 15%;
+	right: 5%;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 100rpx;
+	background-color: #007AFF;
+	color: white;
+	font-size: 26rpx;
+	line-height: 100rpx;
+	text-align: center;
+	z-index: 10;
+	box-shadow: 2px 2px 5px #888888;
+}
+.nullItem{
+	margin: 50% auto;
+}
+.submitBtn{
+	position: fixed;
+	bottom: 4%;
+	left: 3%;
+	right: 3%;
+}

@@ -239,7 +239,6 @@
 				this.eqtype = true;
 			},
 			eqTypeConfirm(e) { //选择设备类型
-				console.log(e);
 				this.eqTypeName = e[0].label;
 				this.typeNum = e[0].value;
 			},
@@ -260,7 +259,6 @@
 			}
 		},
 		onBackPress(e) {
-			console.log(e)
 			if (e.from === 'backbutton') {
 				uni.redirectTo({
 					url: "/pages/LEDequimentDetail/index"

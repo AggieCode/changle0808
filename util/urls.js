@@ -18,10 +18,9 @@ const url = { //市电小程序
 		detectionEquipment: base_url + "/api/equipment/detectionEquipment", //调节亮都，开关灯
 		setEqName: base_url + "/api/equipment/modifyEquipmentName", //修改设备名称
 		setEqRemark: base_url + "/api/equipment/addComment", //修改设备备注
-		getEquipmentPar:base_url+"/api/equipment/getEquipmentPar",//获取设备参数定时任务
-		getEquipmentHistory:base_url+"/api/equipment/getEquipmentHistory",//获取设备历史记录
-		getDataHis:base_url+"/api/webEquipment/dataHis",//最近亮灯时长
-		
+		getEquipmentPar: base_url + "/api/equipment/getEquipmentPar", //获取设备参数定时任务
+		getEquipmentHistory: base_url + "/api/equipment/getEquipmentHistory", //获取设备历史记录
+		getDataHis: base_url + "/api/webEquipment/dataHis", //最近亮灯时长
 	},
 	ListIM: { //项目
 		// deletItem: base_url + "/item/delItem", //删除项目
@@ -34,10 +33,13 @@ const url = { //市电小程序
 		deletItemUser: base_url + "/api/item/deleteMember", //删除项目成员
 		addItemUser: base_url + "/api/item/addMember", //添加项目成员
 		updateItemInfo: base_url + "/api/item/updateItemInfo", //修改项目名称
+		getStrategyList:base_url+"/api/strategy/getStrategyList",//获取参数模板列表
+		getStragegy:base_url+"/api/strategy/getStragegy",//模板详情
+		editStrategyInfo:base_url+"/api/strategy/editStrategyInfo",//添加、修改模板
+		
 	},
 	pinmu: { //屏幕列表
 		pinLis: base_url + "/led/getAllLed",
-
 	},
 	audio: { //音频广播
 		audioList: base_url + "/audio/audioList",
@@ -52,16 +54,16 @@ const url = { //市电小程序
 	sos: { //一键报警"
 		sosList: base_url + "/sos/findSosList",
 	},
-	user:{//下级用户
-		getUserLis:base_url+"/api/user/findAllSubordinateStaff",//下级用户
-		addUser:base_url+"/api/user/addUser",//添加下级用户
-		deleteUser:base_url+"/api/user/deleteUser",//删除下级用户
-		
+	user: { //下级用户
+		getUserLis: base_url + "/api/user/findAllSubordinateStaff", //下级用户
+		addUser: base_url + "/api/user/addUser", //添加下级用户
+		deleteUser: base_url + "/api/user/deleteUser", //删除下级用户
+
 	}
 }
 
 
-
+// const item_url = "https://warn.ludeng-yun.com";
 const platformUrl = { //智慧灯杆
 	monitor: { //监控
 		monitorList: item_url + "/monitor/monitorList", //监控列表
@@ -99,7 +101,8 @@ const platformUrl = { //智慧灯杆
 		setVolume: item_url + '/led/setVolume', // 设置音量
 		setBrightness: item_url + '/led/setBrightness', //设置亮度
 		setScreenOpen: item_url + '/led/setScreenOpen', //开关屏幕
-		getSources: item_url + '/led/getSources', //媒体库列表
+		getSources: item_url + '/led/getSources', //媒体库列表,
+		onUpload: item_url + "/led/onUpload", //添加媒体库
 		delSources: item_url + '/led/delSources', //删除媒体资源
 		getAllProgram: item_url + '/led/getAllProgram', //节目列表
 		addProgram: item_url + '/led/addProgram', //添加节目
@@ -109,49 +112,60 @@ const platformUrl = { //智慧灯杆
 		getTimedScreening: item_url + '/led/getTimedScreening', //查询定时任务
 	},
 	environ: { //环境监测
-		environStatus: item_url +'/environ/environStatus', // 获取单个环境传感器数据
-		updateEnviron: item_url+ '/environ/updateEnviron', // 更新环境传感器数据
-		environList: item_url +'/environ/environList', //获取环境传感器列表
-		addEnviron: item_url +'/environ/addEnviron', //添加
-		delEnviron: item_url +'/environ/delEnviron', //删除
-		bindLight: item_url +'environ/bindLight', //绑定路灯
+		environStatus: item_url + '/environ/environStatus', // 获取单个环境传感器数据
+		updateEnviron: item_url + '/environ/updateEnviron', // 更新环境传感器数据
+		environList: item_url + '/environ/environList', //获取环境传感器列表
+		addEnviron: item_url + '/environ/addEnviron', //添加
+		delEnviron: item_url + '/environ/delEnviron', //删除
+		bindLight: item_url + 'environ/bindLight', //绑定路灯
 	},
 	broadcast: { //广播列表
-		audioList: item_url +'/audio/audioList', //广播列表
-		addAudio: item_url+ '/audio/addAudio', //添加广播
-		delAudio: item_url+ '/audio/delAudio', //删除广播
-		setTervolume: item_url +'/audio/setTervolume', //设置音量
-		getMediaData: item_url+ '/audio/getMediaData', //媒体库资源
-		delMediaData: item_url+ '/audio/delMediaData', //删除媒体资源
-		getTaskData: item_url+ '/audio/getTaskData', //获取任务
-		addTaskInfo: item_url +'/audio/addTaskInfo', //添加任务
-		exetaskEnable: item_url +'/audio/exetaskEnable', //启用/禁用任务
-		exetaskCmd: item_url +'/audio/exetaskCmd', //运行、暂停、删除广播任务
-		getMediaPath: item_url+ '/audio/getMediaPath', //获取媒体文件真实路径
-		exeRealPlayFile: item_url +'/audio/exeRealPlayFile' //测试播放
+		audioList: item_url + '/audio/audioList', //广播列表
+		addAudio: item_url + '/audio/addAudio', //添加广播
+		delAudio: item_url + '/audio/delAudio', //删除广播
+		setTervolume: item_url + '/audio/setTervolume', //设置音量
+		getMediaData: item_url + '/audio/getMediaData', //媒体库资源
+		delMediaData: item_url + '/audio/delMediaData', //删除媒体资源
+		getTaskData: item_url + '/audio/getTaskData', //获取任务
+		addTaskInfo: item_url + '/audio/addTaskInfo', //添加任务
+		exetaskEnable: item_url + '/audio/exetaskEnable', //启用/禁用任务
+		exetaskCmd: item_url + '/audio/exetaskCmd', //运行、暂停、删除广播任务
+		getMediaPath: item_url + '/audio/getMediaPath', //获取媒体文件真实路径
+		exeRealPlayFile: item_url + '/audio/exeRealPlayFile' //测试播放
 	},
 	oneClickCall: { //一键报警
-		findSosList: item_url +'/sos/findSosList',
-		delSos: item_url+ '/sos/delSos',
-		addSos: item_url +'/sos/addSos',
-		editSos: item_url+ '/sos/editSos'
+		findSosList: item_url + '/sos/findSosList',
+		delSos: item_url + '/sos/delSos',
+		addSos: item_url + '/sos/addSos',
+		editSos: item_url + '/sos/editSos',
+		getSosHis:item_url+"/sos/getSosHis"
 	},
 	big: { //大屏数据
-		getMontior: item_url +'/monitor/monitorStatus', // 获取监控
-		getLight: item_url +'/module/moduleStatus', // 获取智慧路灯
-		getAudion: item_url +'/audio/audioStatus', // 获取音响
-		getLed: item_url+ '/led/getLed', //获取led屏幕
-		getWeather: item_url+ '/module/weather',
+		getMontior: item_url + '/monitor/monitorStatus', // 获取监控
+		getLight: item_url + '/module/moduleStatus', // 获取智慧路灯
+		getAudion: item_url + '/audio/audioStatus', // 获取音响
+		getLed: item_url + '/led/getLed', //获取led屏幕
+		getWeather: item_url + '/module/weather',
 
 		// 一级大屏
-		deviceWarn: item_url +'/statistics/deviceWarn', //告警列表
-		deviceStatistics: item_url+ '/statistics/deviceStatistics', //设备数量相关信息
-		energyConsumptionStatistics: item_url+ '/statistics/energyConsumptionStatistics', //市电所有设备近六个月的耗能统计
+		deviceWarn: item_url + '/statistics/deviceWarn', //告警列表
+		deviceStatistics: item_url + '/statistics/deviceStatistics', //设备数量相关信息
+		energyConsumptionStatistics: item_url + '/statistics/energyConsumptionStatistics', //市电所有设备近六个月的耗能统计
 	},
-
+	getGateway: {
+		getGateway:item_url + '/gateway/findList',
+		switchOut: item_url +'/gateway/switchOut',
+		addGateway:item_url + '/gateway/addGateway',
+		updateGateway:item_url + '/gateway/updateGateway',
+		delGateway:item_url + '/gateway/del'
+	},
+	wifi:{
+		wifiList:item_url+"/wifi/findPageList",//wifi列表
+	}
 
 }
 export default {
 	base_url,
-	url
+	url,
+	platformUrl
 }

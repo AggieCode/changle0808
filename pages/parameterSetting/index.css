@@ -1,20 +1,67 @@
-.waringBox{
-	padding: 20rpx 20rpx;
-	margin: 15rpx 20rpx;
+.paramList {
 	box-sizing: border-box;
-	border-bottom: 1rpx solid #EEEEEE;
+	border-top: solid #eee 1rpx;
+	background: #fff;
+	padding-left: 36rpx;
 }
-.errInfo{
-	color: gray;
-	margin-top: 10rpx;
-	font-size: 24rpx;
-	display: flex;
-	justify-content: space-between;
-	
-}
-.errbtn{
-	width: 100rpx;
+
+.TemplateName {
+	height: 100rpx;
+	box-sizing: border-box;
+	border-bottom: solid #eee 1rpx;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	color: #007AFF;
 }
+.paramList .telmLis{
+  height: 100rpx;
+  box-sizing: border-box;
+  border-bottom: solid #eee 1rpx;
+  display: flex;
+  padding: 0 36rpx 0 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.telmLisIcon{
+	width: 27rpx;
+	height: 28rpx;
+}
+.noData{
+	width: 200rpx;
+	height: 230rpx;
+	margin: 0 auto;
+	color: gray;
+	text-align: center;
+	margin-top: 200rpx;
+}
+.noData .icon{
+	width: 100rpx;
+	height: 120rpx;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20rpx;
+	
+}
+.timeSlot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0rpx 36rpx 0 0;
+		height: 80rpx;
+		background: #F1F1F1;
+		margin-left: -36rpx;
+	}
+	.templaLis{
+		padding: 25rpx 20rpx;
+		display: flex;align-items: center;
+		justify-content: space-between;
+		border-bottom: 1rpx solid #F1F1F1;
+	}
+	.templaLis:hover{
+		background: #F1F1F1;
+		transition: ease 0.5s;
+	}
+	.jinruIcon{
+		font-size: 42rpx;
+		width: 32rpx;
+	}

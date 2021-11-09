@@ -1,0 +1,212 @@
+.weatherTemp {
+	margin: 20rpx 30rpx;
+	border-radius: 20rpx;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.xxinfo {
+	padding: 20rpx 20rpx;
+	box-sizing: border-box;
+	border-top-right-radius: 20rpx;
+	border-top-left-radius: 20rpx;
+	height: 310rpx;
+	border: 1rpx solid #F1F1F1;
+	background-image: linear-gradient(#85b4ea 10%, #6482e2);
+}
+
+.xxinfo .title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.xxinfo .title .eqname {
+	padding: 5rpx 15rpx;
+	border: 1rpx solid white;
+	font-size: 26rpx;
+	color: white;
+	border-radius: 90rpx;
+	text-align: center;
+}
+
+.uptime {
+	color: white;
+	font-size: 26rpx;
+
+}
+
+.weather {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.weather .tianqinav {
+	display: flex;
+	align-items: flex-start;
+}
+
+.weather .tianqinav .tianqiPar {
+	padding: 20rpx 20rpx;
+	font-size: 106rpx;
+	color: white;
+	font-weight: 500;
+
+}
+
+.weather .tianqinav .unit {
+	padding: 45rpx 0rpx;
+	color: white;
+	opacity: 0.5;
+	font-size: 28rpx;
+	margin-left: -20rpx;
+}
+
+.weather .tubiao {
+	padding: 20rpx 20rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+.tianqiIcon {
+	width: 62rpx;
+	height: 62rpx;
+}
+
+.tianqiTx {
+	color: white;
+	margin-top: 10rpx;
+}
+
+.tempNav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tempNav .tempRx {
+	padding: 0rpx 25rpx;
+	color: white;
+	font-size: 24rpx;
+
+}
+
+.tempNav .airtx {
+	padding: 0rpx 10rpx;
+	color: white;
+	font-size: 24rpx;
+}
+
+.exponent {
+	width: 100%;
+	height: 400rpx;
+	padding: 20rpx 20rpx;
+	box-sizing: border-box;
+	border: 1rpx solid #F1F1F1;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.exponent .wdpTempn {
+	width: 25%;
+	height: 160rpx;
+	padding: 15rpx 20rpx;
+	font-size: 24rpx;
+	color: #606266;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.exIcon {
+	width: 45rpx;
+	height: 45rpx;
+}
+.params{
+	color: #000000;
+	font-size: 26rpx;
+}
+.windPower{
+	margin: 30rpx 30rpx;
+}
+.windPower .title{
+	font-size: 34rpx;
+}
+.windPower .powerNav{
+	margin-top: 30rpx;
+	width: 100%;
+	height: 180rpx;
+	/* border:1rpx solid #F1F1F1; */
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.windPower .powerNav .fxbnav{
+	width: 35%;
+	border-right:1rpx solid #F1F1F1;
+}
+.windPower .powerNav .fxbnav .fxb{
+	width: 120rpx;
+	height: 120rpx;
+	display: block;
+	margin: 0 auto;
+}
+.windpowerParams{
+	width: 55%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.windpowerParams .fengxiang{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+.fengxiang .fxUIcon{
+	width: 32rpx;
+	height: 32rpx;
+	margin-right: 20rpx;
+}
+.fengxiang view{
+	width: 33%;
+	text-align: center;
+}
+
+/* 空气质量 */
+.airquality{
+	margin: 30rpx 30rpx;
+}
+.airquality .title{
+	font-size: 34rpx;
+}
+.quality{
+	padding: 40rpx 20rpx 30rpx;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing: border-box;
+	border-bottom: 1rpx solid #F1F1F1;
+}
+.huitx{
+	color: gray;
+	font-size: 26rpx;
+	margin-top: 8rpx;
+}
+.quality .wdpTempn{
+	text-align: center;
+	flex: 1;
+	border-right: 1rpx solid #f1f1f1;
+}
+.quality .wdpTempn .params{
+	font-size: 32rpx;
+}

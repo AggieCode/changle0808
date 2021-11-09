@@ -1,0 +1,33 @@
+/**计划任务**/
+.taskItem{
+	margin: 20rpx 30rpx;
+	box-sizing: border-box;
+}
+.taskList{
+	padding: 20rpx 15rxp;
+	padding-bottom: 20rpx;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #F1F1F1;
+}
+.taskName{
+	margin: 10rpx 0;
+	font-size: 32rpx;
+}
+.taskTime{
+	color: gray;
+	font-size: 24rpx;
+	margin: 10rpx 0;
+}
+.disAndDelt{
+	width: 15%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.disAndDelt .btn{
+	margin: 10rpx 0;
+}

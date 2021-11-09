@@ -28,31 +28,31 @@
 
 .item-box {
 	width: 100%;
-	height: 170rpx;
 	margin: 35rpx auto;
 	padding: 10rpx;
 	box-sizing: border-box;
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 	border-radius: 15rpx;
-	overflow: hidden;
+	
 }
 
 .msgical {
-	width: 100%;
-	height: 70%;
+	width: 700rpx;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .projectName {
 	padding: 30rpx 20rpx;
 	font-size: 30rpx;
 	box-sizing: border-box;
-	float: left;
 }
 
 .ringItem {
 	height: 100%;
-	float: right;
-	margin-right: 35rpx;
+	margin-right: 45rpx;
 	display: flex;
 	flex-direction: column;
 	justify-content:space-around;
@@ -65,7 +65,7 @@
 
 .preject-zx {
 	height: 30%;
-	
+	margin-top: 10rpx;
 	display: flex;
 	align-items: center;
 }
@@ -77,14 +77,14 @@
 }
 
 .pre-tishi {
-	width: 95%;
-	height: 30%;
+	width: 100%;
+	padding: 10rpx 30rpx 5rpx 5rpx;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	/* padding: 0 20rpx; */
 	border-top: 1px solid #A0CFFF;
-	margin: 0 auto;
+
 	font-size: 24rpx;
 	color: gray;
 }
@@ -97,7 +97,6 @@
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
-	
 
 }
 

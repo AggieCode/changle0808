@@ -147,23 +147,30 @@
 				id: uni.getStorageSync("itemId"),
 				current: "",
 				scrollTop: 0,
-				tabbarList: [{
+				tabbarList:[{
 					iconPath: "grid",
 					selectedIconPath: "grid-fill",
 					text: '设备列表',
 					customIcon: false,
-					page: "/pages/eqlistItem/index",
-					pagePath: "/pages/eqlistItem/index"
-
+					page:"/pages/eqlistItem/index",
+					pagePath:"/pages/eqlistItem/index"
+					
 				}, {
+					iconPath: "list",
+					selectedIconPath: "list-dot",
+					text: '参数设置',
+					customIcon: false,
+					page:"/pages/parameterSetting/index",
+					pagePath:"/pages/parameterSetting/index"
+				},{
 					iconPath: "file-text",
 					selectedIconPath: "file-text-fill",
 					text: '项目信息',
 					isDot: false,
 					customIcon: false,
-					page: "/pages/ItemInfoPage/index",
-					pagePath: "/pages/ItemInfoPage/index"
-				}],
+					page:"/pages/ItemInfoPage/index",
+					pagePath:"/pages/ItemInfoPage/index"
+				} ],
 				value1: "",
 				eqNameList: [{
 						name: "led设备",
@@ -216,11 +223,7 @@
 			}
 		},
 		methods: {
-			custom() {
-				console.log("搜索")
-			},
 			Clickchange(e) {
-				console.log(e);
 				this.disMsg = e;
 				this.swiperCurrent = e;
 			},
@@ -265,7 +268,6 @@
 			//底部点击跳转页面
 			tabListBtn(e) {
 				let url = this.tabbarList[e];
-				console.log(url);
 				uni.redirectTo({
 					url: url.page
 				})
@@ -360,7 +362,6 @@
 			},
 			//跳转灯杆详情页
 			toeqDetailPage(item){
-				console.log(item)
 				uni.navigateTo({
 					url:"/pages/LEDequimentDetail/index"+`?id=${item.id}`
 				})
@@ -407,24 +408,10 @@
 
 		}),
 		onBackPress(e) {
-			console.log(e)
 			if (e.from === 'backbutton') {
 				uni.switchTab({
 					url: "/pages/ListItem/index"
 				})
-				// uni.showModal({
-				// 	title: '提示',
-				// 	content: '是否返回',
-				// 	success: res => {
-				// 		if (res.confirm) {
-				// 			uni.redirectTo({
-				// 				url: `/pages/Centralizedcontroldevice/Centralizedcontroldevice`
-				// 			})
-
-				// 		}
-				// 	}
-				// });
-				// 禁止默认返回
 				return true;
 			}
 		},

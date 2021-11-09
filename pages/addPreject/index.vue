@@ -29,7 +29,6 @@
 				this.cstiShow=true;
 			},
 			csticonfirm(e){
-				console.log(e);
 				this.province=e.province.label;
 				this.city=e.city.label;
 				this.district=e.area.label;

@@ -43,6 +43,7 @@
 			"style": {
 				// "navigationBarTitleText": "能加",
 				// "fontSize": "12rpx"
+				"backgroundTextStyle": "light",
 				"scrollIndicator": "none",
 				"app-plus": {
 					"titleNView": {
@@ -51,6 +52,7 @@
 						"titleColor": "white"
 
 					} //app+h5顶部导航
+
 				}
 			}
 		},
@@ -72,16 +74,18 @@
 				// }
 			}
 		},
-
-
 		{
 			"path": "pages/ListItem/index",
 			"style": {
 				"navigationBarTitleText": "项目列表",
 				"enablePullDownRefresh": true,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
-
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
 			}
 		},
 		{
@@ -90,8 +94,12 @@
 				"navigationBarTitleText": "设备列表",
 				"enablePullDownRefresh": true,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
-
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
 			}
 		},
 		{
@@ -144,9 +152,14 @@
 			"path": "pages/parameterSetting/index",
 			"style": {
 				"navigationBarTitleText": "参数设置",
-				"enablePullDownRefresh": false,
+				"enablePullDownRefresh": true,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
 			}
 		},
 		{
@@ -182,7 +195,15 @@
 				"navigationBarTitleText": "项目成员",
 				"enablePullDownRefresh": true,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
 			}
 		},
 		{
@@ -191,7 +212,15 @@
 				"navigationBarTitleText": "灯杆信息",
 				"enablePullDownRefresh": true,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
 			}
 		},
 		{
@@ -200,7 +229,15 @@
 				"navigationBarTitleText": "添加设备",
 				"enablePullDownRefresh": false,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
 			}
 		},
 		{
@@ -209,7 +246,15 @@
 				"navigationBarTitleText": "设备参数",
 				"enablePullDownRefresh": false,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
 			}
 		},
 		{
@@ -245,8 +290,248 @@
 				"navigationBarTitleText": "广播详情",
 				"enablePullDownRefresh": true,
 				"navigationBarTextStyle": "white",
-				"navigationBarBackgroundColor": "#007AFF"
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
 			}
+		}, {
+			"path": "pages/monitoring/monitoring",
+			"style": {
+				"navigationBarTitleText": "监控",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"backgroundTextStyle": "dark"
+			}
+
+		}, {
+			"path": "pages/environmentDetail/environmentDetail",
+			"style": {
+				"navigationBarTitleText": "智慧天气",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "white",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+		}, {
+			"path": "pages/weatherHistory/weatherHistory",
+			"style": {
+				"navigationBarTitleText": "图表统计",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/screenDetail/screenDetail",
+			"style": {
+				"navigationBarTitleText": "屏幕详情",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+		}, {
+			"path": "pages/ProgramManagement/ProgramManagement",
+			"style": {
+				"navigationBarTitleText": "节目管理",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/MediaLibrary/MediaLibrary",
+			"style": {
+				"navigationBarTitleText": "媒体库",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+
+		},
+		{
+			"path": "uview-ui/components/u-avatar-cropper/u-avatar-cropper",
+			"style": {
+				"navigationBarTitleText": "媒体选择",
+				"navigationBarBackgroundColor": "#000000"
+			}
+		}, {
+			"path": "pages/gatewayDetail/gatewayDetail",
+			"style": {
+				"navigationBarTitleText": "网关详情",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/broadcaStMedia/broadcaStMedia",
+			"style": {
+				"navigationBarTitleText": "音频列表",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						//"support":true,
+						"color": "#007AFF"
+						//"style":"circle"
+						// "height":"30%"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/scheduledTask/scheduledTask",
+			"style": {
+				"navigationBarTitleText": "计划任务",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/onClickCallDetail/onClickCallDetail",
+			"style": {
+				"navigationBarTitleText": "告警详情",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/AlarmRecord/AlarmRecord",
+			"style": {
+				"navigationBarTitleText": "报警记录",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/updateIMG/updateIMG",
+			"style": {
+				"navigationBarTitleText": "媒体上传",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/WIFIDetailPage/WIFIDetailPage",
+			"style": {
+				"navigationBarTitleText": "WIFI详情",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/AddProgram/AddProgram",
+			"style": {
+				"navigationBarTitleText": "添加节目",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
+		}, {
+			"path": "pages/ProgramScreening/ProgramScreening",
+			"style": {
+				"navigationBarTitleText": "节目筛选",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#007AFF",
+				"app-plus": {
+					"pullToRefresh": {
+						"color": "#007AFF"
+					}
+				}
+			}
+
 		}
 	],
 	"globalStyle": {
@@ -278,7 +563,6 @@
 				"selectedIconPath": "static/tabbar/Profilexuanzhong.png",
 				"iconPath": "static/tabbar/Profile.png"
 			}
-			
 		]
 	},
 	"condition": { //模式配置，仅开发期间生效

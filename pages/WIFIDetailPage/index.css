@@ -1,0 +1,263 @@
+.eqDetail-top{
+  box-sizing: border-box;
+  background: #007AFF;
+  padding:36rpx;
+}
+.eqDetail-top .one{
+  display: flex;
+  align-items: center;
+}
+.eqDetail-top .one .left{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+page{
+  background:#fff;
+}
+.checkGroup{
+  text-align: center;
+  padding-top: 30rpx;
+}
+.shuang{
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.eqDetail-top .one .left .name{
+  font-size: 48rpx;
+  color: #fff;
+  margin-right: 12rpx;
+  font-weight: bold;
+}
+.eqDetail-top .one .left .icon{
+  width: 28rpx;
+  height: 29rpx;
+  margin-top:4rpx;
+}
+.xlh{
+	width: 400rpx;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.eqDetail-top .one .right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.eqDetail-top .one .right .yuanhuan{
+	width: 70rpx;
+	height: 70rpx;
+	background-color: white;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 20rpx;
+}
+.eqDetail-top .one .right .yuanhuan .icon{
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.eqDetail-upTime{
+  font-size: 24rpx;
+  margin:25rpx 0 25rpx 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ .xlh{
+  color: #fff;
+  font-size: 24rpx;
+  margin-top:6rpx;
+}
+
+ .remark{
+  color: #fff;
+  font-size: 24rpx;
+  margin:0 0 20rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.remark .icon{
+  width: 28rpx;
+  height: 29rpx;
+}
+
+.icon{
+  width: 28rpx;
+  height: 29rpx;
+}
+
+.sb-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.sb-info .info-list{
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
+  width: 100rpx;
+}
+.sb-info .info-list .dec{
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+}
+.sb-info .info-list .val{
+  width: 100%;
+  text-align: center;
+  margin-top:24rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.item-list{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx;
+}
+.item-list .left{
+  display: flex;
+  align-items: center;
+  
+}
+.item-list .left .icon{
+  width: 32rpx;
+  height: 30rpx;
+}
+.item-list .left .label{
+   margin:0 40rpx 0 20rpx;
+}
+.item-list .left .dec{
+  color: #808695;
+  font-size: 26rpx;
+}
+/*开关灯*/
+.toolbar{
+  box-sizing: border-box;
+  padding:24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.toolbar .item{
+  width: 158rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.toolbar .item .icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+.toolbar .item .icon.open{
+  width: 52rpx;
+  height: 54rpx;
+}
+.toolbar .item .dec{
+  width: 100%;
+  text-align: center;
+  margin-top:24rpx;
+  color: #404040;
+  font-size: 26rpx;
+}
+
+/*电压 电量*/
+.sbInfo{
+  box-sizing: border-box;
+  padding:20rpx 36rpx 20rpx 36rpx;
+  margin-bottom: 10rpx;
+}
+.sbInfo .item{
+  border-bottom: solid #eee 1rpx;
+  box-sizing: border-box;
+  padding:40rpx 0;
+}
+.sbInfo .item:nth-last-child(1){
+  border:none;
+}
+.sbInfo .item .item-label .led{
+  width: 20rpx;
+  height: 33rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  margin-top:-6rpx;
+}
+
+.sbInfo .item .item-info{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.sbInfo .item .item-info .list{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:32rpx;
+  font-size: 30rpx;
+}
+.sbInfo .item .item-info .list .icon{
+  width: 32rpx;
+  height: 30rpx;
+  margin-right: 12rpx;
+}
+.ledEquemies{
+	box-sizing: border-box;
+	padding:30rpx 36rpx 200rpx 36rpx;
+	margin-bottom: 60rpx;
+	position: relative;
+}
+.ledEquemies .facility{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.facilitynav{
+	width: 150rpx;
+	height: 120rpx;
+	margin-top: 30rpx;
+	padding: 25rpx 20rxp;
+	border-radius: 15rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+.eqitmeicon{
+	width: 52rpx;
+	height: 52rpx;
+	margin-top: 10rpx;
+}
+.eqNames{
+	color: gray;
+	font-size: 26rpx;
+	margin-bottom: 10rpx;
+}
+.slidern{
+	padding: 50rpx 40rpx;
+}
+.slidern .lingth{
+	margin-bottom: 30rpx;
+}
+.eqnameInp{
+	padding: 30rpx 20rpx;
+}
+.errorItme{
+	margin-top: 30%;
+	
+}

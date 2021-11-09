@@ -123,31 +123,31 @@
 		<view class="ledEquemies">
 			<ListTitle title="灯杆设备"></ListTitle>
 			<view class="facility">
-				<view class="facilitynav">
+				<view class="facilitynav" @click="toEnverPage">
 					<image src="../../static/eqlist/guanggaolan.png" class="eqitmeicon"></image>
 					<text class="eqNames">屏幕广告</text>
 				</view>
-				<view class="facilitynav">
+				<view class="facilitynav" @click="toboradCastPage">
 					<image src="../../static/eqitemicon/guangbo.png" class="eqitmeicon"></image>
 					<text class="eqNames">音频广播</text>
 				</view>
-				<view class="facilitynav">
+				<view class="facilitynav" @click="toMontonPage">
 					<image src="../../static/eqitemicon/monitoronlie.png" class="eqitmeicon"></image>
 					<text class="eqNames">监控管理</text>
 				</view>
-				<view class="facilitynav">
+				<view class="facilitynav" @click="toweatherPage">
 					<image src="../../static/eqitemicon/tianqilan.png" class="eqitmeicon"></image>
 					<text class="eqNames">智慧天气</text>
 				</view>
 				<view class="facilitynav">
 					<image src="../../static/eqlist/gaojingzaxian.png" class="eqitmeicon"></image>
-					<text class="eqNames">一键报警</text>
+					<text class="eqNames" @click="toOneClickCallPage">一键报警</text>
 				</view>
-				<view class="facilitynav">
+				<view class="facilitynav" @click="togatewayDetail">
 					<image src="../../static/eqitemicon/onliewangguan.png" class="eqitmeicon"></image>
-					<text class="eqNames">智慧网关</text>
+					<text class="eqNames" >智慧网关</text>
 				</view>
-				<view class="facilitynav">
+				<view class="facilitynav" @click="toWifiDetails">
 					<image src="../../static/eqitemicon/xinhao.png" class="eqitmeicon"></image>
 					<text class="eqNames">智慧WIFI</text>
 				</view>
@@ -187,10 +187,10 @@
 				</view>
 			</view>
 		</u-modal>
-
+		<BottonTabar :tabbarList="tabbarList"></BottonTabar>
 		<!--底部tabbar-->
-		<u-tabbar v-model="current" :list="tabbarList" active-color="#007AFF" @change="tabListBtn" :show="!allDis">
-		</u-tabbar>
+		<!-- <u-tabbar v-model="current" :list="tabbarList" active-color="#007AFF" @change="tabListBtn" :show="!allDis">
+		</u-tabbar> -->
 	</view>
 </template>
 
@@ -202,11 +202,9 @@
 				ReamarkShow: false,
 				eqName: "",
 				eqnameAler: false,
-				allDis: false,
-				id:"",
+				id: "",
 				eqDetail: {}, //设备参数
 				runDay: "",
-				current: "",
 				dimmingShow: false, //调光弹窗
 				dimming: 0,
 				tabbarList: [{
@@ -236,6 +234,9 @@
 						pagePath: "/pages/historicalData/index"
 					}
 				],
+				device_serial: "", //监控设备ID
+				validate_code: "", //监控视频加密
+				accessToken: "", //设备token
 			}
 		},
 		methods: {
@@ -247,7 +248,7 @@
 				})
 			},
 			//获取设备信息
-			getEquimentDetail() {
+			async getEquimentDetail() {
 				uni.showLoading({
 					title: '加载中'
 				})
@@ -260,24 +261,22 @@
 				let data = {
 					id,
 				}
-				this.$request({
-					url: this.$urls.url.eqItem.getEquipmentStatus + `?id=${this.id}`,
-					method: "GET",
-					success: res => {
-						uni.hideLoading();
-						uni.stopPullDownRefresh(); //停止当前页面下拉刷新
-						if (res.code == 10000) {
-							let msg=res.data.dataLive;
-							this.eqDetail = res.data.dataLive;
-							this.eqName = res.data.dataLive.name; //初始化名称
-							uni.getStorageSync("eqId",msg.id);
-						}
-					},
-					fail: err => {
-						uni.hideLoading();
-						this.$showToast(err);
+				let url = this.$urls.url.eqItem.getEquipmentStatus + `?id=${this.id}`;
+				await this.promeFun(data, url, "GET").then(res => {
+					uni.hideLoading();
+					uni.stopPullDownRefresh(); //停止当前页面下拉刷新
+					if (res.code == 10000) {
+						let msg = res.data.dataLive;
+						this.eqDetail = res.data.dataLive;
+						this.eqName = res.data.dataLive.name; //初始化名称
+						uni.getStorageSync("eqId", msg.id);
 					}
-
+				}).then(() => {
+					this.getMontoirParams(); //获取监控设备信息
+					this.getEqToken(); //token
+				}).catch((err) => {
+					uni.hideLoading();
+					this.$showToast(err);
 				})
 			},
 
@@ -321,30 +320,25 @@
 			showEditDiago() {
 				this.eqnameAler = !this.eqnameAler
 			},
-			setEqname() {
+			async setEqname() {
 				let data = {
 					itemId: uni.getStorageSync("itemId"),
 					id: this.eqDetail.id,
 					name: this.eqName
 				};
-				this.promeFun(data).then(data => {
-					this.$request({
-						url: this.$urls.url.eqItem.setEqName,
-						data,
-						method: "POST",
-						success: res => {
-							if (res.code == 10000) {
-								this.$showToast("修改成功");
-							} else {
-								this.$showToast(res.msg);
-							}
-							this.showEditDiago();
-						}
-					})
-				}).then(()=>{
-					setTimeout(()=>{
+				let url = this.$urls.url.eqItem.setEqName;
+
+				await this.promeFun(data, url).then(res => {
+					if (res.code == 10000) {
+						this.$showToast("修改成功");
+					} else {
+						this.$showToast(res.msg);
+					}
+					this.showEditDiago();
+				}).then(() => {
+					setTimeout(() => {
 						this.getEquimentDetail()
-					},3000)
+					}, 3000)
 				})
 
 			},
@@ -391,22 +385,123 @@
 					url: "/pages/AddLampequmipent/index" + `?id=${this.id}`
 				})
 			},
-			promeFun(data) {
+			promeFun(data, url, method = "POST") {
 				return new Promise((resolve, reject) => {
-					resolve(data)
+					this.$request({
+						url,
+						data,
+						method,
+						success: res => {
+							resolve(res);
+						}
+					})
+				})
+			},
+			//跳转监控详情
+			toMontonPage() {
+				let data={
+					accessToken:this.accessToken,
+					deviceSerial:this.device_serial,
+					code:this.validate_code,
+				}
+				uni.navigateTo({
+					url: "/pages/monitoring/monitoring" + `?data=${encodeURIComponent(JSON.stringify(data))}`
+				})
+			},
+			toOneClickCallPage(){
+				uni.navigateTo({
+					url: "/pages/onClickCallDetail/onClickCallDetail"
+				})
+			},
+			toEnverPage(){
+				//跳转屏幕页面
+				console.log(this.eqDetail)
+				let itemId=this.eqDetail.led_id
+				uni.navigateTo({
+					url: "/pages/screenDetail/screenDetail" + `?itemId=${itemId}`
+				})
+			},
+			//跳转至天气详情
+			toweatherPage() {
+				let itemId = this.eqDetail.id
+				uni.navigateTo({
+					url: "/pages/environmentDetail/environmentDetail" + `?itemId=${itemId}`
+				})
+			},
+			toWifiDetails(){//跳转至wifi详情页
+			let itemId = this.eqDetail.id
+				uni.navigateTo({
+					url:"/pages/WIFIDetailPage/WIFIDetailPage"+ `?itemId=${itemId}`
+				})
+			},
+			//跳转至智慧网关
+			togatewayDetail() {
+				let name = this.eqDetail.name
+				uni.navigateTo({
+					url: "/pages/gatewayDetail/gatewayDetail" + `?name=${name}`
+				})
+			},
+			//跳转至音频广播
+			toboradCastPage(){
+				let name = this.eqDetail.name
+				uni.navigateTo({
+					url:"/pages/broadcastDetail/index"+`?name=${name}`
+				})
+			},
+			//获取监控参数
+			async getMontoirParams() {
+				let data = {
+					pageNumber: 1,
+					pageSize: 10,
+					keyword: this.eqDetail.name,
+					itemId: uni.getStorageSync("itemId"),
+				}
+				let url = this.$urls.platformUrl.monitor.monitorList;
+				let res = await this.promeFun(data, url, "POST");
+				if (res.code == 10000) {
+					this.device_serial = res.data.list[0].device_serial;
+					this.validate_code = res.data.list[0].validate_code;
+				} else {
+					this.$showToast(res.msg)
+				}
+			},
+			
+			//获取设备token
+			getEqToken() {
+				let data = {
+					appKey: uni.getStorageSync("app_key"),
+					appSecret: uni.getStorageSync("app_secret")
+				}
+				uni.request({
+					url: "https://open.ys7.com/api/lapp/token/get",
+					method: "POST",
+					data,
+					header: {
+						"Content-Type": "application/x-www-form-urlencoded",
+						appKey: uni.getStorageSync("app_key")
+					},
+					success: res => {
+						if (res.data.code==200) {
+							this.accessToken = res.data.data.accessToken;
+						}else{
+							this.$showToast(res.msg);
+						}
+					}
 				})
 			}
 		},
 		onLoad(data) {
+			uni.showLoading({
+				title: "加载中"
+			})
 			if (data.id) {
-				console.log(data);
 				this.id = data.id;
 				uni.setStorageSync("eqId", data.id);
-			}else{
+			} else {
 				this.id = uni.getStorageSync('eqId');
 			}
-			
 			this.getEquimentDetail();
+
 		},
 		onPullDownRefresh() {
 			//下拉的生命周期
@@ -421,7 +516,6 @@
 
 		},
 		onBackPress(e) {
-			console.log(e)
 			if (e.from === 'backbutton') {
 				uni.redirectTo({
 					url: "/pages/eqlistItem/index"

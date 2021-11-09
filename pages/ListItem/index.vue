@@ -14,7 +14,6 @@
 					<view class="msgical" @click="toEQList(item)" @top="toEQList(item)">
 						<view class="projectName">{{item.name}}</view>
 						<view class="ringItem">
-
 							<view class="preject-zx">
 								<image class="pre-icon" src="../../static/deng.png"></image><text
 									class="pre-font" style="color: gray;">在线：{{item.lightingSum}}</text>
@@ -156,18 +155,19 @@
 								this.pageNumber = 1;
 								this.pageSize = 10;
 								this.getListItem()
+							}else{
+								this.$showToast(res.msg)
 							}
-
 						}
 					})
 					this.ListMsg.splice(index, 1);
-
-
 					//删除项目
 				} else {
 					this.ListMsg[index].show = false;
 					//this.$u.toast(`收藏成功`);
 				}
+				this.ListMsg=[];
+				this.getListItem();
 			},
 			open(index) {
 				// 先将正在被操作的swipeAction标记为打开状态，否则由于props的特性限制，

@@ -1,0 +1,179 @@
+.detailPam {
+	margin: 20rpx 20rpx 20rpx 20rpx;
+	padding: 20rpx 20rpx;
+	box-sizing: border-box;
+	border-radius: 20rpx;
+	border: 1rpx solid #F1F1F1;
+}
+
+.titleBx {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.timeMonth {
+	color: gray;
+	font-size: 24rpx;
+}
+
+.whls {
+	width: 100%;
+	height: 120rpx;
+	margin: 20rpx auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.widths {
+	flex: 1;
+	font-size: 42rpx;
+	text-align: center;
+}
+
+.widths .unit {
+	color: gray;
+	font-size: 20rpx;
+}
+
+.eqname {
+	width: 100%;
+	height: 100rpx;
+	text-align: center;
+	line-height: 100rpx;
+	font-size: 36rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.EQstatus {
+	align-self: flex-end;
+}
+
+.program {
+	margin-top: 10rpx;
+	text-align: center;
+	font-size: 26rpx;
+	color: gray;
+	margin-bottom: 10rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.eqIcon {
+	width: 42rpx;
+	height: 42rpx;
+}
+
+.EQstatus {
+	font-size: 20rpx;
+	color: gray;
+}
+
+.eqimei {
+	text-align: center;
+	color: gray;
+	font-size: 24rpx;
+}
+
+/**信息**/
+.eqParams {
+	margin: 50rpx 20rpx;
+	padding: 20rpx 20rpx;
+	border-top-right-radius: 20rpx;
+	border-top-left-radius: 20rpx;
+	border: 1rpx solid #F1F1F1;
+	border-bottom: 0;
+}
+
+.eqParams .title {
+	font-size: 32rpx;
+}
+
+.eqParams .eqList {
+	height: 100rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #F1F1F1;
+	margin: 0 20rpx;
+}
+
+.eqParams .eqList .describe {
+		width: 300rpx;
+	font-size: 26rpx;
+	color: gray;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+::deep  uni-slider{
+	display: inline;
+}
+.eqParams .setTime{
+	width: 100%;
+	margin: 30rpx auto;
+}
+.timelLiST{
+
+}
+.modelTIme{
+	margin: 5rpx 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #F1F1F1;
+	
+}
+.radioBX{
+	margin: 20rpx 30rpx;
+}
+.addBTn{
+	margin: 10rpx auto;
+	margin-left: 75%;
+	
+}
+.startInp{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tetxAlign{
+	text-align: center;
+}
+.setName{
+	font-size: 26rpx;
+	color: gray;
+	margin-left: 5%;
+}
+.temlateTime{
+	position: relative;
+}
+.deltTimeIcon{
+	width: 18rpx;
+	height: 18rpx;
+	position: absolute;
+	top: 15%;
+	right: 7%;
+}
+.timeTask{
+	margin: 20rpx 0;
+}
+.allTime{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.allTxt{
+	color: #007AFF;
+	margin-right: 20rpx;
+}
+.Opteirbtn{
+
+}

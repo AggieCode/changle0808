@@ -122,7 +122,6 @@
 					this.$u.toast(`删除了第${index}个设备`);
 					//删除项目
 				} else {
-					console.log(index)
 					setTimeout(() => {
 						this.eqList[index].show = true;
 					}, 200)
@@ -138,7 +137,6 @@
 			},
 			radioChange(e) {
 				//单选
-				console.log(e)
 			},
 			hidetip() {
 				//隐藏提示
@@ -168,7 +166,6 @@
 						}
 					},
 					complete: (data) => {
-						console.log(data)
 					}
 				});
 			},
@@ -220,7 +217,6 @@
 
 		},
 		onBackPress(e) {
-			console.log(e)
 			if (e.from === 'backbutton') {
 				uni.redirectTo({
 					url: "/pages/eqlistItem/index"

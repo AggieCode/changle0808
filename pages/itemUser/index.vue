@@ -9,11 +9,12 @@
 				</view> -->
 				
 				<!--删除-->
-				 <view class='del-tool' v-show="item.show">
+				<!-- <view class='del-tool' v-show="item.show">
 				   <view class='del item' @click='delItem(item,index)'>删除</view>
 				   <view class='cannel item' @click='hideTool(index)'>取消</view>
 				   <view class='jiao'></view>
-				 </view>
+				 </view> -->
+				 <DeletBtn :inShow="item.show" :item="item" :index="index" @hideTool="hideTool" @delItem="delItem"></DeletBtn>
 			</view>
 			
 			 

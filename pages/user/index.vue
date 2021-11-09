@@ -27,6 +27,7 @@
 		},
 		methods:{
 			loginout(){
+				uni.removeStorageSync("token");
 				uni.reLaunch({
 					url:"/pages/login/login",
 				})

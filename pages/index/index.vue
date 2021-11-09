@@ -1,167 +1,165 @@
 <template>
 	<view>
-		<view class="propetybox">
-			<!-- <view class="textBx">
-				<view>资产信息：</view>
-			</view> -->
-			<view class="chartMsg">
-				<view class="titx">
-					<view class="colrsBox"></view>
-					<view class="titleBx">设备统计</view>
+
+		<!--智慧WIFI-->
+		<view class="evnomar">
+			<ListTitle title="智慧WIFI"></ListTitle>
+			<view class="monEqnum">
+				<view>设备总数</view> <text style="font-size: 46rpx; color: #1890FF;margin-left: 15rpx;">{{0}}</text>
+			</view>
+			<view class="evnomarBox">
+				<view class="PMmsg">
+					<view class="PMnum">20</view>
+					<view>累计流量</view>
 				</view>
+				<view class="PMmsg">
+					<view class="PMnum">37</view>
+					<view>累计人数</view>
+				</view>
+				<view class="PMmsg">
+					<view class="PMnum">20%</view>
+					<view>当日流量</view>
+				</view>
+				<view class="PMmsg">
+					<view class="PMnum">37%</view>
+					<view>在线人数</view>
+				</view>
+			</view>
+		</view>
+		<!--视频监控-->
+		<view class="MontiorBox">
+			<ListTitle title="视频监控"></ListTitle>
+			<view class="monEqnum" style="margin-bottom: 20rpx;">
+				<view>人流量</view> <text style="font-size: 46rpx; color: #1890FF;margin-left: 15rpx;">{{0}}</text>
+			</view>
+			<view class="MontiorImg">
+				<video class="vdeo" :src="videoUrl">
+				</video>
+			</view>
+		</view>
+		<!--智慧照明-->
+		<view class="MontiorBox">
+			<ListTitle title="智慧照明"></ListTitle>
+			<view class="ligthPar">
+				<view class="paramsBX">
+					<view class="paramsTX">229V</view>
+					<view class="paraMios">电压</view>
+				</view>
+				<view class="paramsBX">
+					<view class="paramsTX">229A</view>
+					<view class="paraMios">电流</view>
+				</view>
+				<view class="paramsBX">
+					<view class="paramsTX">229W</view>
+					<view class="paraMios">功率</view>
+				</view>
+				<view class="paramsBX">
+					<view class="paramsTX">关</view>
+					<view class="paraMios">状态</view>
+				</view>
+			</view>
+			<view class="chartsBX">
 				<view class="charts-box">
-					<view class="charts-box" style="margin-left: -5%;width: 105%;height: 90%;margin-top: 6%;">
-						<qiun-data-charts type="column" :chartData="chartData" background="none" />
-					</view>
-				</view>
-			</view>
-		</view>
-		<!--设备状态-->
-		<view class="EquipmentStatus">
-			<view class="titx">
-				<view class="colrsBox"></view>
-				<view class="titleBx">设备增长量</view>
-			</view>
-			<br />
-			<br />
-			<view class="eqSum" style="margin-left: -5%;width: 105%;">
-				<!-- <qiun-data-charts type="ring" :chartData="annulus" background="none" /> -->
-
-				<qiun-data-charts type="line" :chartData="annulus" background="none" />
-
-				<!-- <view class="charts-box">
-					<qiun-data-charts type="pie" :chartData="chartData" background="none" />
-				</view> -->
-			</view>
-			<!-- <view class="rigMsgtx">
-				<view class="amountbx">
-					<view class="lantxt">
-						<uni-icons type="smallcircle-filled" size="10" color="#1890FF">&nbsp;&nbsp;</uni-icons><text
-							class="qingk">在线</text> <text class="ge"> 15个</text>
-					</view>
-					<view class="offtext">
-						<uni-icons type="smallcircle-filled" size="10" color="#91CB74">&nbsp;&nbsp;</uni-icons><text
-							class="qingk">离线</text> <text class="ge"> 15个</text>
-					</view>
-				</view>
-			</view> -->
-		</view>
-
-		<!--告警情况-->
-		<view class=" alarmcondition">
-			<view class="titx">
-				<view class="colrsBox"></view>
-				<view class="titleBx">告警信息</view>
-			</view>
-			<br />
-			<view class="sucorList">
-				<!--告警信息列表-->
-				<view class="lisermsg">
-					<view class="list-title">
-						<text>设备设备</text>
-						<text class="list-id">5620</text>
-					</view>
-					<view class="list-item">
-						<text class="list-state">设备不在线</text>
-						<text class="list-time">2021-09-10</text>
-					</view>
-				</view>
-				<view class="lisermsg">
-					<view class="list-title">
-						<text>设备设备</text>
-						<text class="list-id">5620</text>
-					</view>
-					<view class="list-item">
-						<text class="list-state">设备不在线</text>
-						<text class="list-time">2021-09-10</text>
-					</view>
-				</view>
-				<view class="lisermsg">
-					<view class="list-title">
-						<text>设备设备</text>
-						<text class="list-id">5620</text>
-					</view>
-					<view class="list-item">
-						<text class="list-state">设备不在线</text>
-						<text class="list-time">2021-09-10</text>
-					</view>
-				</view>
-				<view class="lisermsg">
-					<view class="list-title">
-						<text>设备设备</text>
-						<text class="list-id">5620</text>
-					</view>
-					<view class="list-item">
-						<text class="list-state">设备不在线</text>
-						<text class="list-time">2021-09-10</text>
-					</view>
-				</view>
-				<view class="lisermsg">
-					<view class="list-title">
-						<text>设备设备</text>
-						<text class="list-id">5620</text>
-					</view>
-					<view class="list-item">
-						<text class="list-state">设备不在线</text>
-						<text class="list-time">2021-09-10</text>
-					</view>
-				</view>
-				<view class="lisermsg">
-					<view class="list-title">
-						<text>设备设备</text>
-						<text class="list-id">5620</text>
-					</view>
-					<view class="list-item">
-						<text class="list-state">设备不在线</text>
-						<text class="list-time">2021-09-10</text>
-					</view>
-				</view>
-			</view>
-		</view>
-
-		<!--设备在线率-->
-		<view class="consumption">
-			<view class="titx">
-				<view class="colrsBox"></view>
-				<view class="titleBx">设备在线率</view>
-			</view>
-			<view class="staicFom">
-				<view class="charts-box" style="margin-left: -5%;width: 105%;height: 105%;margin-top: -5%;">
-					<!-- <qiun-data-charts type="line" :chartData="chartData2
+					<qiun-data-charts type="column" :chartData="chartData2" background="none" :opts="chartOpts1" />
+					<!-- 
+					<qiun-data-charts type="line" :chartData="chartData2
 					" background="none" /> -->
-					<qiun-data-charts type="bar" :chartData="chartData2" background="none" />
 				</view>
 			</view>
 		</view>
-		
-		<view class="consumption">
-			<view class="titx">
-				<view class="colrsBox"></view>
-				<view class="titleBx">项目增长量</view>
-			</view>
-			<view class="staicFom">
-				<view class="charts-box" style="margin-left: -5%;width: 105%;height: 105%;margin-top: -5%;">
-					<qiun-data-charts type="line" :chartData="annulus
-					" background="none" />
-					
-				</view>
+
+		<view class="weatherPars">
+			<ListTitle title="智慧天气"></ListTitle>
+
+			<!--天气详情-->
+			<view>
+				<u-grid :col="4" :border="false">
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/fssy.png" class="weatherIcon"></image>
+						<view class="weatherParms">0KM/S</view>
+						<view class="grid-text">风速</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/21wd.png" class="weatherIcon"></image>
+						<view class="weatherParms">0℃</view>
+						<view class="grid-text">温度</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/shiduchuanganqi.png" class="weatherIcon"></image>
+						<view class="weatherParms">45%</view>
+						<view class="grid-text">湿度</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/fengxiangcaise.png" class="weatherIcon"></image>
+						<view class="weatherParms">北</view>
+						<view class="grid-text">风向</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/jiangyuliangSVG.png" class="weatherIcon"></image>
+						<view class="weatherParms">0mm</view>
+						<view class="grid-text">降雨量</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/CAIPM2.5.png" class="weatherIcon"></image>
+						<view class="weatherParms">0ug/m3</view>
+						<view class="grid-text">PM2.5</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/PMCAOZUO10.png" class="weatherIcon"></image>
+						<view class="weatherParms">0ug/m3</view>
+						<view class="grid-text">PM10</view>
+					</u-grid-item>
+					<u-grid-item :custom-style="{padding: '15rpx 0'}">
+						<image src="../../static/tianqi/zaoyin.png" class="weatherIcon"></image>
+						<view class="weatherParms">55DB</view>
+						<view class="grid-text">噪音</view>
+					</u-grid-item>
+				</u-grid>
 			</view>
 		</view>
-		
-		<view class="propetybox">
-			<!-- <view class="textBx">
-				<view>资产信息：</view>
-			</view> -->
-			<view class="chartMsg">
-				<view class="titx">
-					<view class="colrsBox"></view>
-					<view class="titleBx">能耗统计</view>
+		<!--屏幕广告-->
+		<view class="advertising">
+			<ListTitle title="屏幕广告"></ListTitle>
+			<view class="advervdeo">
+				<u-swiper :list="IMGlist" height="300" border-radius="0" :effect3d="true"></u-swiper>
+				<!-- <image class="vdeo"
+												src="https://image.xmnengjia.com/group1/M00/00/01/rBKIJ2AdDGeAYMwTAA1tw4AGm0E718.jpg">
+											</image> -->
+			</view>
+
+			<view class="borderBtom">
+				<view>当前播放：无</view>
+				<view>正在执行节目：无</view>
+			</view>
+		</view>
+
+		<!--充电桩-->
+		<view class="chargingPile">
+			<ListTitle title="充电桩"></ListTitle>
+			<view class="">
+				<image src="https://iot2.xmnengjia.com/static/media/qiche.7a0def4d.png" class="cdche"></image>
+			</view>
+			<view class="cdMsgBX">
+				<view class="cellVX">
+					<view class="params">34.5</view>
+					<view>电池(A)</view>
 				</view>
-				<view class="charts-box">
-					<view class="charts-box" style="margin-left: -5%;width: 105%;height: 90%;margin-top: 6%;">
-						<qiun-data-charts type="column" :chartData="chartData" background="none" />
-					</view>
+				<view class="cellVX">
+					<view class="params">24</view>
+					<view>电压(V)</view>
 				</view>
+				<view class="cellVX" style="border: 0;">
+					<view class="params">0%</view>
+					<view>SOC</view>
+				</view>
+			</view>
+			<view class="cdTimebx">
+				<view>充电时长：</view>
+				<view>00:00:20</view>
+			</view>
+			<view class="cdTimebx">
+				<view>消费金额：</view>
+				<view>00.00<text class="unit">元</text></view>
 			</view>
 		</view>
 	</view>
@@ -170,126 +168,101 @@
 	export default {
 		data() {
 			return {
-				chartData: { //设备统计
+				IMGlist: [{
+						image: 'https://image.xmnengjia.com/group1/M00/00/01/rBKIJ2AdDGeAYMwTAA1tw4AGm0E718.jpg',
+						title: '昨夜星辰昨夜风，画楼西畔桂堂东'
+					},
+					{
+						image: 'https://image.xmnengjia.com/group1/M00/00/02/rBKIJ2A3EGuARRB8AAiTtIrlU9M791.jpg',
+						title: '身无彩凤双飞翼，心有灵犀一点通'
+					},
+					{
+						image: 'https://image.xmnengjia.com/group1/M00/00/01/rBKIJ2A1xbWABuKAAAs7BXrOIMI530.jpg',
+						title: '身无彩凤双飞翼，心有灵犀一点通'
+					},
+					{
+						image: 'https://image.xmnengjia.com/group1/M00/00/02/rBKIJ2A3EGaAZiEHAAlnLYSW1RI657.jpg',
+						title: '身无彩凤双飞翼，心有灵犀一点通'
+					},
+				],
+				chartOpts1: {
+					legend: {
+						show: false,
+					},
+					xAxis: {
+						disableGrid: true
+					},
+					yAxis: {
+						disableGrid: true
+					}
+				},
+				chartData2: { //能耗统计数据
 					"categories": [
-						"路灯",
-						"灯杆",
-						"监控",
-						"屏幕",
-						"广播",
-						"天气",
-						"充电桩",
-						"报警"
+						'3月', '4月', '5月', '6月', '7月'
 					],
 					"series": [{
-						"name": "设备数",
+						"name": "G",
 						"data": [
-							35,
-							36,
-							31,
-							33,
-							13,
-							34,
-							24,
-							12
+							224, 218, 135, 147, 260
 						]
-					}]
+					}, ]
 				},
-				chartData2: {//设备在线率
-					"categories": [
-						"报警",
-						"充电桩",
-						"天气",
-						"广播",
-						"屏幕",
-						"监控",
-						"灯杆",
-						"路灯"
-					],
-					"series": [{
-						"name": "设备在线率",
-						"data": [
-							35,
-							36,
-							31,
-							33,
-							13,
-							34,
-							32,
-							54
-						]
-					}]
-				},
-				//设备增长量
-				annulus: {
-					"categories": [
-						"1月",
-						"2月",
-						"3月",
-						"4月",
-						"5月",
-						"6月"
-					],
-					"series": [{
-						"name": "设备增长量",
-						"data": [
-							35,
-							8,
-							25,
-							37,
-							4,
-							20
-						]
-					}]
-				},
-				//项目增长量
-				annulus: {
-					"categories": [
-						"1月",
-						"2月",
-						"3月",
-						"4月",
-						"5月",
-						"6月"
-					],
-					"series": [{
-						"name": "项目增长量",
-						"data": [
-							35,
-							8,
-							25,
-							37,
-							4,
-							20
-						]
-					}]
-				},
-				//能耗统计
-				chartData: { //设备统计
-					"categories": [//x
-						"2021-4",
-						"2021-5",
-						"2021-6",
-						"2021-7",
-						"2021-8",
-						"2021-9",
-						
-					],
-					"series": [{
-						"name": "设备数",
-						"data": [//y
-							60000,
-							50000,
-							40000,
-							30000,
-							20000,
-							10000,
-							0,
-						]
-					}]
-				},
-				
+				accessToken:"",//监控token
+				videoUrl:"",
 			}
+		},
+		methods:{
+			//获取监控视频
+			getMontoryVideo(){
+				let data={
+					accessToken:this.accessToken,
+					deviceSerial:"E68113922",
+					code:"COTWMU",
+					protocol:2
+				};
+				uni.request({
+					url:"https://open.ys7.com/api/lapp/v2/live/address/get",
+					method:"POST",
+					data,
+					header:{
+						"Content-Type": "application/x-www-form-urlencoded",
+						accessToken:this.accessToken,
+					},
+					success:res=>{
+						if(res.data.code==200){
+							this.videoUrl=res.data.data.url;
+						}else{
+							this.$showToast("视频播放失败")
+						}
+					}
+				})	
+			},
+			//获取监控token
+			getAccessToken(){
+				let data={
+					appKey:uni.getStorageSync("app_key"),
+					appSecret:uni.getStorageSync("app_secret")
+				}
+				return new Promise((resolve,reject)=>{
+					uni.request({
+						url:"https://open.ys7.com/api/lapp/token/get",
+						method:"POST",
+						data,
+						header:{
+							"Content-Type": "application/x-www-form-urlencoded",
+						},
+						success:res=>{
+							if(res.data.code==200){
+								this.accessToken=res.data.data.accessToken;
+								resolve();
+							}
+						}
+					})
+				})
+			}
+		},
+		onLoad() {
+			this.getAccessToken().then(()=>this.getMontoryVideo())
 		}
 	}
 </script>
@@ -299,5 +272,11 @@
 	.charts-box {
 		width: 100%;
 		height: 100%;
+	}
+
+	.grid-text {
+		font-size: 28rpx;
+		margin-top: 4rpx;
+		color: $u-type-info;
 	}
 </style>
